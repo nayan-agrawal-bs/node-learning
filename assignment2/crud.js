@@ -18,6 +18,7 @@ const startApp = async () => {
     "Please select an option \n 1) Create a entry \n 2) Read \n 3) Update \n 4) Delete \n"
   );
   switch (userRes) {
+    //Create
     case "1":
       let id = await readLineAsync("Input Id\n");
       let name = await readLineAsync("Input Name\n");
@@ -30,6 +31,7 @@ const startApp = async () => {
         });
       });
       break;
+    // Read
     case "2":
       fs.readFile("input.json", "utf-8", (err, data) => {
         if (err) throw err;
@@ -37,6 +39,7 @@ const startApp = async () => {
         console.log(arr);
       });
       break;
+    // Update
     case "3":
       let updateId = await readLineAsync("Input Id\n");
       let updatedName = await readLineAsync("Input Name\n");
@@ -53,6 +56,7 @@ const startApp = async () => {
         });
       });
       break;
+    // Delete
     case "4":
       let deleteId = await readLineAsync("Input Id\n");
       let index;
