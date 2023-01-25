@@ -44,7 +44,7 @@ const startApp = async () => {
         if (err) throw err;
         let arr = JSON.parse(data);
         arr.forEach((element) => {
-          if (element.id == updateId) {
+          if (element.id === updateId) {
             element.name = updatedName;
           }
         });
