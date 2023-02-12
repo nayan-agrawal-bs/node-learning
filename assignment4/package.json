@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mongodb": "^5.0.1"
+  },
+  "scripts": {
+    "connection": "node connection.js"
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "firstname": "Mahendra",
+    "lastname": "Singh Dhoni",
+    "runs": "200000",
+    "iplTeam": "Chennai",
+    "wickets": "60",
+    "matchPlayed": "4000",
+    "strikeRate": 50
+  },
+  {
+    "id": "2",
+    "firstname": "Rohit",
+    "lastname": "Sharma",
+    "runs": "24000",
+    "iplTeam": "Mumbai",
+    "wickets": "5",
+    "matchPlayed": "1000",
+    "strikeRate": 24
+  },
+  {
+    "id": "3",
+    "firstname": "Virat",
+    "lastname": "Kohli",
+    "runs": "50000",
+    "iplTeam": "Banglore",
+    "wickets": "50",
+    "matchPlayed": "2000",
+    "strikeRate": 25
+  }
+]

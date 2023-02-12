@@ -36,11 +36,21 @@ const startApp = async () => {
 
     switch (userRes) {
       case "1": {
+        let present = false;
         const id = await readLineAsync("Input Id\n");
-        const name = await readLineAsync("Input Name\n");
-        const data = await readData();
-        data.push({ id, name });
-        await writeData(data);
+        data.forEach((element) => {
+          if (element.id === id) {
+            present = true;
+          }
+        });
+        if (present) {
+          console.log("Id Already Present");
+        } else {
+          const name = await readLineAsync("Input Name\n");
+          const data = await readData();
+          data.push({ id, name });
+          await writeData(data);
+        }
         break;
       }
       case "2": {
