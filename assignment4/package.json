@@ -3,6 +3,7 @@
     "mongodb": "^5.0.1"
   },
   "scripts": {
+    "code2": "node code2.js",
     "connection": "node connection.js"
   }
 }
