@@ -1,7 +1,7 @@
-require("dotenv").config();
+import * as dotenv from "dotenv";
+dotenv.config();
 const MongoClient = require("mongodb").MongoClient;
-const uri =
-  "mongodb+srv://Nayan:process.env.PASS@cluster0.xwwmfqh.mongodb.net/?retryWrites=true&w=majority";
+const uri = `mongodb+srv://Nayan:${process.env.PASS}@cluster0.xwwmfqh.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true });
 console.log(client);
 client.connect((err) => {
