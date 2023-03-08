@@ -18,8 +18,8 @@ const UserSchema = new mongoose.Schema({
     default: 0,
   },
   iplTeam: {
-    type: String,
-    default: "No Team",
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Team",
   },
   wickets: {
     type: Number,

@@ -1,4 +1,5 @@
 const PlayerModel = require("../models/Player.js");
+const TeamModel = require("../models/Team.js");
 
 const getAllPlayers = async (req, res) => {
   try {
@@ -20,22 +21,28 @@ const getspecPlayer = async (req, res) => {
 };
 
 const createPlayer = async (req, res) => {
-  console.log(req.body);
-  const newPlayer = new PlayerModel({
-    id: req.body.id,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    runs: req.body.runs,
-    iplTeam: req.body.iplTeam,
-    wickets: req.body.wickets,
-    matchPlayed: req.body.matchPlayed,
-    strikeRate: req.body.runs / req.body.matchPlayed,
-  });
+  const teamId = await TeamModel.findOne({ _id: req.body.iplTeam });
   try {
-    await newPlayer.save();
-    res.status(201).json(newPlayer);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+    if (teamId) {
+      const newPlayer = new PlayerModel({
+        id: req.body.id,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        runs: req.body.runs,
+        iplTeam: req.body.iplTeam,
+        wickets: req.body.wickets,
+        matchPlayed: req.body.matchPlayed,
+        strikeRate: req.body.runs / req.body.matchPlayed,
+      });
+      try {
+        await newPlayer.save();
+        res.status(201).json(newPlayer);
+      } catch (error) {
+        res.status(400).json({ message: error.message });
+      }
+    }
+  } catch {
+    res.status(400).json({ message: "Team Not Present" });
   }
 };
 
